@@ -26,11 +26,6 @@
 			<version>${jsonwebtoken.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
 			<groupId>org.mariadb.jdbc</groupId>
 			<artifactId>mariadb-java-client</artifactId>
 			<scope>runtime</scope>
@@ -93,8 +88,6 @@
 			<properties>
 				<context.path>dev-local</context.path>
 			</properties>
-			<dependencies>
-			</dependencies>
 		</profile>
 		<profile>
 			<id>test</id>

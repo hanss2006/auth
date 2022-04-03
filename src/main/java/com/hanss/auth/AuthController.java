@@ -1,4 +1,4 @@
-package com.hanss.auth.controllers;
+package com.hanss.auth;
 
 import com.hanss.auth.model.ERole;
 import com.hanss.auth.model.Role;
