@@ -18,6 +18,8 @@
 		<java.version>1.8</java.version>
 		<jsonwebtoken.version>0.9.1</jsonwebtoken.version>
 		<springdoc-openapi-ui.version>1.6.6</springdoc-openapi-ui.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
 	<dependencies>
 		<dependency>
