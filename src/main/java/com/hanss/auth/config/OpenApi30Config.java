@@ -1,4 +1,4 @@
-package com.hanss.assetup.security;
+package com.hanss.auth.config;
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;

@@ -68,6 +68,12 @@ public class AuthController {
                          roles));
   }
 
+  @GetMapping("/test")
+  public ResponseEntity<?> registerUser() {
+    return ResponseEntity.ok(("Passed"));
+  }
+
+
   //@PostMapping("/signup")
   public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
     if (userRepository.existsByUsername(signUpRequest.getUsername())) {
