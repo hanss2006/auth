@@ -11,6 +11,8 @@ import com.hanss.auth.model.RoleRepository;
 import com.hanss.auth.model.UserRepository;
 import com.hanss.auth.security.jwt.JwtUtils;
 import com.hanss.auth.security.services.UserDetailsImpl;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -69,12 +71,14 @@ public class AuthController {
   }
 
   @GetMapping("/test")
+  @Operation(summary = "Test endpoint", security = @SecurityRequirement(name = "bearerAuth"))
   public ResponseEntity<?> registerUser() {
     return ResponseEntity.ok(("Passed"));
   }
 
 
   //@PostMapping("/signup")
+  //@Operation(summary = "Signup endpoint", security = @SecurityRequirement(name = "bearerAuth"))
   public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
     if (userRepository.existsByUsername(signUpRequest.getUsername())) {
       return ResponseEntity
