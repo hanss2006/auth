@@ -16,17 +16,24 @@
 	<description>Authorization Server</description>
 	<properties>
 		<java.version>1.8</java.version>
+		<jsonwebtoken.version>0.9.1</jsonwebtoken.version>
+		<springdoc-openapi-ui.version>1.6.6</springdoc-openapi-ui.version>
 	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>${jsonwebtoken.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
 		<dependency>
 			<groupId>org.mariadb.jdbc</groupId>
 			<artifactId>mariadb-java-client</artifactId>
 			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-oauth2-authorization-server</artifactId>
-			<version>0.2.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -50,6 +57,10 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<scope>provided</scope>
 		</dependency>
@@ -58,7 +69,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+    </dependencies>
 	<build>
 		<finalName>api#${project.artifactId}</finalName>
 		<plugins>
@@ -77,6 +88,13 @@
 			<properties>
 				<context.path>dev-local</context.path>
 			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>org.springdoc</groupId>
+					<artifactId>springdoc-openapi-ui</artifactId>
+					<version>${springdoc-openapi-ui.version}</version>
+				</dependency>
+			</dependencies>
 		</profile>
 		<profile>
 			<id>test</id>
