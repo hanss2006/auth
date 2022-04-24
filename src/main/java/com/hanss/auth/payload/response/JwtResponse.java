@@ -1,18 +1,23 @@
 package com.hanss.auth.payload.response;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class JwtResponse {
   private String token;
-  private String type = "Bearer";
   private String username;
   private String email;
+  @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+  private LocalDateTime  expires;
   private List<String> roles;
 
-  public JwtResponse(String accessToken, String username, String email, List<String> roles) {
+  public JwtResponse(String accessToken, String username, String email, LocalDateTime  expires, List<String> roles) {
     this.token = accessToken;
     this.username = username;
     this.email = email;
+    this.expires = expires;
     this.roles = roles;
   }
 
@@ -22,14 +27,6 @@ public class JwtResponse {
 
   public void setAccessToken(String accessToken) {
     this.token = accessToken;
-  }
-
-  public String getTokenType() {
-    return type;
-  }
-
-  public void setTokenType(String tokenType) {
-    this.type = tokenType;
   }
 
   public String getEmail() {
@@ -48,7 +45,21 @@ public class JwtResponse {
     this.username = username;
   }
 
+  public LocalDateTime getExpires() {
+    return expires;
+  }
+
+  public void setExpires(LocalDateTime expires) {
+    this.expires = expires;
+  }
+
   public List<String> getRoles() {
     return roles;
   }
+
+  public void setRoles(List<String> roles) {
+    this.roles = roles;
+  }
+
+
 }
